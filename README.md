@@ -1,4 +1,4 @@
-Motion-UNIXSocket
+Motion-UNIXSocket [![Code Climate](https://codeclimate.com/github/mgartner/motion-unixsocket/badges/gpa.svg)](https://codeclimate.com/github/mgartner/motion-unixsocket)
 =================
 
 RubyMotion doesn't provide the convenient UNIXSocket class for interacting with
