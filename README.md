@@ -1,4 +1,4 @@
-motion-unixsocket
+Motion-UNIXSocket
 =================
 
 RubyMotion doesn't provide the convenient UNIXSocket class for interacting with
@@ -10,16 +10,20 @@ Installation
 
 Add this to your Gemfile:
 
-`gem "motion-unixsocket", "~> 0.0.1"`
+```
+gem "motion-unixsocket", "~> 0.0.1"
+```
 
 Run bundle install:
 
-`$ bundle install`
+```
+$ bundle install
+```
 
 Usage
 -----
 
-You can communicate with Unix domain sockets synchronously by readin and
+You can communicate with Unix domain sockets synchronously by reading and
 writing NSData objects.
 
 ```ruby
@@ -43,12 +47,24 @@ msg = "Put a sock in it!\n"
 sock.write(msg.to_data)
 ```
 
+Support
+-------
+
+I've only tested this gem on OS X.
+
 Status
 ------
 
 This gem is very young and I'm sure there's some unknown bugs and gotchas. I'll try to fix any issues brought up, but pull requests for bug fixes, optimizations, and API changes are always welcome.
 
 Ideally the UNIX::Socket class would inherit from IO, but when I tried to piece together what methods needed to be implemented to get the full features of IO, I nearly lost my mind. If anyone can point me in the right direction for this, please let me know.
+
+Tests
+-----
+
+Writing tests for this was a bit tricky. I ended up using an MRI Ruby process to create a socket server. Each test spawns this simple Unix domain socket server which echos a message sent to it and then closes. The tests check that the value written to the socket via UNIX::Socket (RubyMotion version) is the same as the value read back.
+
+I was unable to get the asynchronous version working in the tests, but it works fine in an application and in the REPL.
 
 License
 -------
