@@ -57,7 +57,7 @@ Status
 
 This gem is very young and I'm sure there's some unknown bugs and gotchas. I'll try to fix any issues brought up, but pull requests for bug fixes, optimizations, and API changes are always welcome.
 
-Ideally the UNIX::Socket class would inherit from IO, but when I tried to piece together what methods needed to be implemented to get the full features of IO, I nearly lost my mind. If anyone can point me in the right direction for this, please let me know.
+Ideally the UNIX::Socket class would inherit from IO. If anyone knows an example of IO being subclassed properly, please point me in the right direction.
 
 Tests
 -----
